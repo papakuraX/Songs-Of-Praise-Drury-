@@ -1,125 +1,133 @@
-<!DOCTYPE html> 
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Songs Of Praise In Times Of War- Drury Church Choir Workspace</title>
+    <title>Songs Of Praise In Times Of War</title>
     <link rel="preconnect" href="https://googleapis.com">
     <link rel="preconnect" href="https://gstatic.com" crossorigin>
     <link href="https://googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --bg-light: #f8fafc;
-            --panel-glass: rgba(255, 255, 255, 0.9);
-            --border-glass: rgba(197, 160, 89, 0.25);
-            --border-active: rgba(161, 118, 44, 0.6);
-            --brass-primary: #a1762c;
-            --brass-glow: #caa465;
-            --text-main: #1e293b;
+            --bg-daylight: #fdfbf7;
+            --studio-glass: rgba(255, 255, 255, 0.92);
+            --border-brass: rgba(184, 134, 11, 0.25);
+            --border-active: rgba(139, 92, 26, 0.6);
+            --brass-gold: #8b5c1a;
+            --brass-glow: #c5a059;
+            --text-dark: #1e2530;
             --text-muted: #64748b;
+            --card-bg: #ffffff;
         }
+
         * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Plus Jakarta Sans', sans-serif; -webkit-tap-highlight-color: transparent; }
+
         body {
-            background-color: var(--bg-light);
-            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://w3.org' width='100' height='120' viewBox='0 0 100 120'%3E%3Cg fill='none' stroke='%23caa465' stroke-width='0.4' stroke-opacity='0.25'%3E%3Cline x1='0' y1='20' x2='100' y2='20'/%3E%3Cline x1='0' y1='30' x2='100' y2='30'/%3E%3Cline x1='0' y1='40' x2='100' y2='40'/%3E%3Cline x1='0' y1='50' x2='100' y2='50'/%3E%3Cline x1='0' y1='60' x2='100' y2='60'/%3E%3Cpath d='M20,50 Q25,35 30,50 T40,50' stroke-width='0.6'/%3E%3Ccircle cx='30' cy='50' r='2' fill='%23caa465' fill-opacity='0.25'/%3E%3Cline x1='32' y1='50' x2='32' y2='30'/%3E%3C/g%3E%3C/svg%3E");
-            color: var(--text-main); padding: 24px 16px; display: flex; justify-content: center; min-height: 100vh;
+            background-color: var(--bg-daylight);
+            /* Elegant Linen Sheet Music Manuscript Background */
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://w3.org' width='100' height='120' viewBox='0 0 100 120'%3E%3Cg fill='none' stroke='%23c5a059' stroke-width='0.35' stroke-opacity='0.2'%3E%3Cline x1='0' y1='20' x2='100' y2='20'/%3E%3Cline x1='0' y1='30' x2='100' y2='30'/%3E%3Cline x1='0' y1='40' x2='100' y2='40'/%3E%3Cline x1='0' y1='50' x2='100' y2='50'/%3E%3Cline x1='0' y1='60' x2='100' y2='60'/%3E%3Cpath d='M20,50 Q25,35 30,50 T40,50' stroke-width='0.5'/%3E%3Ccircle cx='30' cy='50' r='1.5' fill='%23c5a059' fill-opacity='0.2'/%3E%3Cline x1='32' y1='50' x2='32' y2='30'/%3E%3C/g%3E%3C/svg%3E");
+            color: var(--text-dark);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            padding: 0;
         }
-        .app-shell { width: 100%; max-width: 420px; background: var(--panel-glass); border: 1px solid var(--border-glass); border-radius: 24px; padding: 24px; box-shadow: 0 20px 40px rgba(161, 118, 44, 0.12); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); }
-        header { text-align: center; margin-bottom: 24px; }
-        header h1 { font-size: 1.25rem; font-weight: 700; text-transform: uppercase; }
-        header p { font-size: 0.75rem; color: var(--brass-primary); text-transform: uppercase; letter-spacing: 2px; margin-top: 4px; font-weight: 600; }
-        .app-navigation { display: flex; background: rgba(161, 118, 44, 0.05); border: 1px solid rgba(161, 118, 44, 0.15); border-radius: 14px; padding: 4px; margin-bottom: 20px; gap: 4px; }
-        .nav-tab { flex: 1; background: none; border: none; color: var(--text-muted); padding: 12px 0; font-size: 0.75rem; font-weight: 600; border-radius: 10px; text-transform: uppercase; }
-        .nav-tab.active { background: #ffffff; border: 1px solid var(--border-active); color: var(--brass-primary); box-shadow: 0 2px 8px rgba(161, 118, 44, 0.08); }
-        .page-content { display: none; }
-        .page-content.active { display: block; }
-        .card-workspace { background: rgba(255, 255, 255, 0.6); border: 1px solid var(--border-glass); border-radius: 18px; padding: 20px; margin-bottom: 20px; }
-        .panel-label { display: block; font-size: 0.65rem; font-weight: 700; color: var(--brass-primary); text-transform: uppercase; margin-bottom: 12px; }
-        .btn-prime { background: linear-gradient(135deg, #dfba7c, var(--brass-primary)); color: #ffffff; border: none; padding: 14px 20px; border-radius: 12px; font-weight: 700; font-size: 0.8rem; cursor: pointer; width: 100%; text-transform: uppercase; box-shadow: 0 4px 12px rgba(161, 118, 44, 0.25); }
-        .display-monitor, .prompter-deck { background: #ffffff; border: 1px solid rgba(161, 118, 44, 0.15); border-radius: 12px; padding: 20px; text-align: center; min-height: 90px; display: flex; flex-direction: column; justify-content: center; align-items: center; }
-        .status-readout { font-size: 1.25rem; font-weight: 600; color: var(--text-main); }
-        .meter-container { width: 100%; height: 4px; background: #e2e8f0; border-radius: 2px; margin-top: 16px; overflow: hidden; }
-        .meter-fill { height: 100%; width: 0%; background: var(--brass-primary); transition: width 0.1s linear; }
-        .line-primary { font-size: 1.1rem; font-weight: 600; line-height: 1.5; color: var(--text-main); }
+
+        .screen { display: none; width: 100%; max-width: 480px; min-height: 100vh; background: var(--studio-glass); border-left: 1px solid var(--border-brass); border-right: 1px solid var(--border-brass); padding: 32px 24px; box-shadow: 0 0 50px rgba(139, 92, 26, 0.06); flex-direction: column; }
+        .screen.active { display: flex; }
+
+        /* --- HERO SCREEN STYLING --- */
+        #hero-screen { justify-content: center; text-align: center; background: linear-gradient(180deg, rgba(253,251,247,0.8), rgba(255,255,255,0.95)); }
+        .hero-badge { font-size: 0.75rem; color: var(--brass-gold); font-weight: 700; letter-spacing: 3px; text-transform: uppercase; margin-bottom: 16px; }
+        .hero-title { font-size: 2rem; font-weight: 700; line-height: 1.2; letter-spacing: -0.5px; margin-bottom: 8px; color: var(--text-dark); text-transform: uppercase; }
+        .hero-subtitle { font-size: 1.05rem; color: var(--text-muted); font-weight: 500; margin-bottom: 48px; }
+        
+        .btn-enter { background: linear-gradient(135deg, var(--brass-glow), var(--brass-gold)); color: #ffffff; border: none; padding: 20px 32px; border-radius: 16px; font-weight: 700; font-size: 0.95rem; cursor: pointer; text-transform: uppercase; letter-spacing: 1.5px; box-shadow: 0 10px 25px rgba(139, 92, 26, 0.25); transition: transform 0.2s; }
+        .btn-enter:active { transform: scale(0.97); }
+
+        /* --- STUDIO DASHBOARD STYLING --- */
+        .studio-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 24px; border-bottom: 1px solid var(--border-brass); padding-bottom: 16px; }
+        .studio-header h2 { font-size: 1.1rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; }
+        .btn-nav-back { background: none; border: 1px solid var(--border-brass); padding: 6px 12px; border-radius: 8px; font-size: 0.7rem; font-weight: 700; color: var(--brass-gold); cursor: pointer; text-transform: uppercase; }
+
+        .studio-tabs { display: flex; background: rgba(139, 92, 26, 0.05); border: 1px solid rgba(139, 92, 26, 0.15); border-radius: 12px; padding: 4px; margin-bottom: 20px; gap: 4px; }
+        .tab-trigger { flex: 1; background: none; border: none; color: var(--text-muted); padding: 10px 0; font-size: 0.75rem; font-weight: 600; border-radius: 8px; cursor: pointer; text-transform: uppercase; }
+        .tab-trigger.active { background: #ffffff; border: 1px solid var(--border-active); color: var(--brass-gold); box-shadow: 0 2px 6px rgba(139, 92, 26, 0.08); }
+
+        .workspace-panel { display: none; flex-direction: column; gap: 20px; }
+        .workspace-panel.active { display: flex; }
+
+        .studio-card { background: var(--card-bg); border: 1px solid var(--border-brass); border-radius: 16px; padding: 18px; box-shadow: 0 4px 12px rgba(0,0,0,0.02); }
+        .card-label { display: block; font-size: 0.65rem; font-weight: 700; color: var(--brass-gold); text-transform: uppercase; margin-bottom: 12px; letter-spacing: 0.5px; }
+
+        /* Custom Feature UI Elements */
+        .audio-item { display: flex; justify-content: space-between; align-items: center; padding: 10px; background: rgba(139, 92, 26, 0.03); border-radius: 8px; margin-bottom: 8px; font-size: 0.85rem; font-weight: 500; }
+        .btn-play-mini { background: var(--brass-gold); color: #fff; border: none; width: 28px; height: 28px; border-radius: 50%; font-size: 0.7rem; cursor: pointer; display: flex; justify-content: center; align-items: center; }
+
+        .input-group { display: flex; flex-direction: column; gap: 6px; margin-bottom: 12px; }
+        .input-group input { padding: 12px; border: 1px solid var(--border-brass); border-radius: 10px; font-size: 0.85rem; outline: none; background: rgba(253,251,247,0.5); }
+        .input-group input:focus { border-color: var(--brass-gold); }
+        .btn-action { background: var(--brass-gold); color: #fff; border: none; padding: 12px; border-radius: 10px; font-weight: 700; font-size: 0.8rem; text-transform: uppercase; cursor: pointer; width: 100%; }
+
+        .splitter-channels { display: grid; grid-template-columns: repeat(2, 1fr); gap: 8px; margin-top: 12px; }
+        .channel-box { padding: 10px; background: rgba(0,0,0,0.02); border: 1px solid var(--border-brass); border-radius: 8px; text-align: center; font-size: 0.75rem; font-weight: 700; color: var(--text-muted); }
+        .channel-box.active { background: rgba(139, 92, 26, 0.05); color: var(--brass-gold); border-color: var(--brass-gold); }
+
+        .singer-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 6px; }
+        .singer-slot { aspect-ratio: 1; border: 1px dashed var(--border-brass); border-radius: 8px; display: flex; flex-direction: column; justify-content: center; align-items: center; font-size: 0.65rem; font-weight: 700; color: var(--text-muted); cursor: pointer; background: rgba(255,255,255,0.5); }
+        .singer-slot.assigned-soprano { background: #fef3c7; color: #b45309; border-style: solid; }
+        .singer-slot.assigned-alto { background: #dcfce7; color: #15803d; border-style: solid; }
+        .singer-slot.assigned-bass { background: #dbeafe; color: #1d4ed8; border-style: solid; }
+        .singer-slot.assigned-fourth { background: #f3e8ff; color: #6b21a8; border-style: solid; }
+
+        /* --- CHRONICLE BOOK STYLING --- */
+        .chronicle-tabs { display: flex; flex-direction: column; gap: 10px; margin-top: 12px; }
+        .book-node { padding: 14px; background: #ffffff; border: 1px solid var(--border-brass); border-radius: 10px; cursor: pointer; }
+        .book-node h4 { font-size: 0.85rem; font-weight: 700; margin-bottom: 2px; }
+        .book-node p { font-size: 0.7rem; color: var(--text-muted); }
+        .book-content-display { background: #ffffff; border: 1px solid var(--border-brass); border-radius: 12px; padding: 16px; min-height: 140px; font-size: 0.85rem; line-height: 1.5; color: var(--text-dark); margin-top: 12px; }
     </style>
 </head>
 <body>
-    <div class="app-shell">
-        <header>
-            <h1>Songs Of Praise</h1>
-            <p>Choir Workspace</p>
-        </header>
 
-        <div class="app-navigation">
-            <button class="nav-tab active" onclick="switchTab('tester', event)">Vocal Tester</button>
-            <button class="nav-tab" onclick="switchTab('prompter', event)">Prompter</button>
-        </div>
-
-        <div id="tester-page" class="page-content active">
-            <div class="card-workspace">
-                <span class="panel-label">Acoustic Analysis Matrix</span>
-                <div class="display-monitor">
-                    <div id="pitch-status" class="status-readout">READY</div>
-                    <div class="meter-container"><div id="progress-bar" class="meter-fill"></div></div>
-                </div>
-            </div>
-            <button class="btn-prime" onclick="startVocalTest()">Initialize Scan</button>
-        </div>
-
-        <div id="prompter-page" class="page-content">
-            <div class="card-workspace">
-                <span class="panel-label">Manuscript Teleprompter</span>
-                <div class="prompter-deck">
-                    <div id="lyric-box" class="line-primary">Tap below to cue lyrics...</div>
-                </div>
-            </div>
-            <button class="btn-prime" onclick="advanceLyrics()">Advance Phrase</button>
-        </div>
+    <!-- SCREEN 1: HERO LANDING -->
+    <div id="hero-screen" class="screen active">
+        <div class="hero-badge">Drury Church</div>
+        <h1 class="hero-title">Songs Of Praise<br>In Times Of War</h1>
+        <p class="hero-subtitle">Choir Class Space</p>
+        <button class="btn-enter" onclick="navigateTo('studio')">Enter Recording Studio</button>
     </div>
 
-    <script>
-        function switchTab(tabName, e) {
-            document.querySelectorAll('.nav-tab').forEach(btn => btn.classList.remove('active'));
-            document.querySelectorAll('.page-content').forEach(p => p.classList.remove('active'));
-            e.target.classList.add('active');
-            if(tabName === 'tester') {
-                document.getElementById('tester-page').classList.add('active');
-            } else {
-                document.getElementById('prompter-page').classList.add('active');
-            }
-        }
+    <!-- SCREEN 2: MAIN STUDIO DESK -->
+    <div id="studio-screen" class="screen">
+        <div class="studio-header">
+            <h2>Recording Studio</h2>
+            <button class="btn-nav-back" onclick="navigateTo('hero')">Exit</button>
+        </div>
 
-        function startVocalTest() {
-            let bar = document.getElementById('progress-bar');
-            let status = document.getElementById('pitch-status');
-            let width = 0;
-            status.innerText = "ANALYZING...";
-            bar.style.width = '0%';
-            let interval = setInterval(() => {
-                if (width >= 100) {
-                    clearInterval(interval);
-                    status.innerText = ["Soprano Range", "Alto Range", "Tenor Range", "Bass Range"][Math.floor(Math.random() * 4)];
-                } else {
-                    width += 5;
-                    bar.style.width = width + '%';
-                }
-            }, 80);
-        }
+        <div class="studio-tabs">
+            <button class="tab-trigger active" onclick="switchTab('workspace', event)">Workspace</button>
+            <button class="tab-trigger" onclick="switchTab('chronicles', event)">Chronicles</button>
+        </div>
 
-        const lyrics = [
-            "Amazing grace! How sweet the sound",
-            "That saved a wretch like me!",
-            "I once was lost, but now am found",
-            "Was blind, but now I see.",
-            "Praise God, praise God, Amen."
-        ];
-        let lyricIndex = 0;
+        <!-- TAB SECTION A: CORE STUDIO WORKSPACE -->
+        <div id="panel-workspace" class="workspace-panel active">
+            <!-- 1. Previously Recorded Saved Music -->
+            <div class="studio-card">
+                <span class="card-label">Group Records Archive</span>
+                <div class="audio-item">
+                    <span>Session_Track_01_Acoustic.wav</span>
+                    <button class="btn-play-mini">▶</button>
+                </div>
+                <div class="audio-item">
+                    <span>Choir_Worship_Live_Session.wav</span>
+                    <button class="btn-play-mini">▶</button>
+                </div>
+            </div>
 
-        function advanceLyrics() {
-            let box = document.getElementById('lyric-box');
-            box.innerText = lyrics[lyricIndex];
-            lyricIndex = (lyricIndex + 1) % lyrics.length;
-        }
-    </script>
-</body>
-</html>
+            <!-- 2. AI Audio YouTube Splitter -->
+            <div class="studio-card">
+                <span class="card-label">Start New Project (AI Link Splitter)</span>
+                <div class="input-group">
+                    <input type="text" id="yt-url" placeholder="Paste YouTube Song Link Here...">
