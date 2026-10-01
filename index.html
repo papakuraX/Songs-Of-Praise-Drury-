@@ -3,240 +3,69 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Songs Of Praise In Times Of War - Drury Church Choir Space</title>
-    
+    <title>Songs Of Praise In Times Of War- Drury Church Choir Workspace</title>
     <link rel="preconnect" href="https://googleapis.com">
     <link rel="preconnect" href="https://gstatic.com" crossorigin>
     <link href="https://googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    
     <style>
         :root {
-            /* High-End Daylight Studio Palette */
             --bg-light: #f8fafc;
-            --panel-glass: rgba(255, 255, 255, 0.85);
+            --panel-glass: rgba(255, 255, 255, 0.9);
             --border-glass: rgba(197, 160, 89, 0.25);
             --border-active: rgba(161, 118, 44, 0.6);
-            
-            /* Premium Metallic Brass & Polished Accents */
             --brass-primary: #a1762c;
             --brass-glow: #caa465;
             --text-main: #1e293b;
             --text-muted: #64748b;
-            --btn-light-bg: #ffffff;
         }
-
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            -webkit-tap-highlight-color: transparent;
-        }
-
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Plus Jakarta Sans', sans-serif; -webkit-tap-highlight-color: transparent; }
         body {
             background-color: var(--bg-light);
-            /* Crisp Daylight Sheet Music Manuscript Background Overlay */
             background-image: url("data:image/svg+xml,%3Csvg xmlns='http://w3.org' width='100' height='120' viewBox='0 0 100 120'%3E%3Cg fill='none' stroke='%23caa465' stroke-width='0.4' stroke-opacity='0.25'%3E%3Cline x1='0' y1='20' x2='100' y2='20'/%3E%3Cline x1='0' y1='30' x2='100' y2='30'/%3E%3Cline x1='0' y1='40' x2='100' y2='40'/%3E%3Cline x1='0' y1='50' x2='100' y2='50'/%3E%3Cline x1='0' y1='60' x2='100' y2='60'/%3E%3Cpath d='M20,50 Q25,35 30,50 T40,50' stroke-width='0.6'/%3E%3Ccircle cx='30' cy='50' r='2' fill='%23caa465' fill-opacity='0.25'/%3E%3Cline x1='32' y1='50' x2='32' y2='30'/%3E%3C/g%3E%3C/svg%3E");
-            color: var(--text-main);
-            padding: 24px 16px;
-            display: flex;
-            justify-content: center;
-            align-items: flex-start;
-            min-height: 100vh;
+            color: var(--text-main); padding: 24px 16px; display: flex; justify-content: center; min-height: 100vh;
         }
-
-        .app-shell {
-            width: 100%;
-            max-width: 420px;
-            background: var(--panel-glass);
-            border: 1px solid var(--border-glass);
-            border-radius: 24px;
-            padding: 24px;
-            box-shadow: 0 20px 40px -10px rgba(161, 118, 44, 0.12), 0 10px 20px -5px rgba(0, 0, 0, 0.04);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-        }
-
-        header {
-            text-align: center;
-            margin-bottom: 24px;
-        }
-        header h1 {
-            font-size: 1.25rem;
-            font-weight: 700;
-            letter-spacing: 0.5px;
-            color: var(--text-main);
-            text-transform: uppercase;
-        }
-        header p {
-            font-size: 0.75rem;
-            color: var(--brass-primary);
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            margin-top: 4px;
-            font-weight: 600;
-        }
-
-        .app-navigation {
-            display: flex;
-            background: rgba(161, 118, 44, 0.05);
-            border: 1px solid rgba(161, 118, 44, 0.15);
-            border-radius: 14px;
-            padding: 4px;
-            margin-bottom: 20px;
-            gap: 4px;
-        }
-        .nav-tab {
-            flex: 1;
-            background: none;
-            border: none;
-            color: var(--text-muted);
-            padding: 12px 0;
-            font-size: 0.75rem;
-            font-weight: 600;
-            cursor: pointer;
-            border-radius: 10px;
-            transition: all 0.2s ease;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-        .nav-tab.active {
-            background: var(--btn-light-bg);
-            border: 1px solid var(--border-active);
-            color: var(--brass-primary);
-            box-shadow: 0 2px 8px rgba(161, 118, 44, 0.08);
-        }
-
-        .page-content {
-            display: none;
-        }
-        .page-content.active {
-            display: block;
-        }
-
-        .card-workspace {
-            background: rgba(255, 255, 255, 0.6);
-            border: 1px solid var(--border-glass);
-            border-radius: 18px;
-            padding: 20px;
-            margin-bottom: 20px;
-            box-shadow: inset 0 1px 0 #ffffff;
-        }
-        .panel-label {
-            display: block;
-            font-size: 0.65rem;
-            font-weight: 700;
-            color: var(--brass-primary);
-            text-transform: uppercase;
-            margin-bottom: 12px;
-            letter-spacing: 1px;
-        }
-
-        .btn-prime {
-            background: linear-gradient(135deg, #dfba7c, var(--brass-primary));
-            color: #ffffff;
-            border: none;
-            padding: 14px 20px;
-            border-radius: 12px;
-            font-weight: 700;
-            font-size: 0.8rem;
-            cursor: pointer;
-            width: 100%;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            box-shadow: 0 4px 12px rgba(161, 118, 44, 0.25);
-            transition: transform 0.1s ease;
-        }
-        .btn-prime:active {
-            transform: scale(0.98);
-        }
-
-        .display-monitor {
-            background: rgba(255, 255, 255, 0.9);
-            border: 1px solid rgba(161, 118, 44, 0.15);
-            border-radius: 12px;
-            padding: 20px;
-            text-align: center;
-            min-height: 90px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.02);
-        }
-        .status-readout {
-            font-size: 1.25rem;
-            font-weight: 600;
-            color: var(--text-main);
-            letter-spacing: 0.5px;
-        }
-        
-        .meter-container {
-            width: 100%;
-            height: 4px;
-            background: #e2e8f0;
-            border-radius: 2px;
-            margin-top: 16px;
-            overflow: hidden;
-        }
-        .meter-fill {
-            height: 100%;
-            width: 0%;
-            background: linear-gradient(90deg, var(--brass-glow), var(--brass-primary));
-            transition: width 0.1s linear;
-        }
-
-        .prompter-deck {
-            background: rgba(255, 255, 255, 0.9);
-            border: 1px solid rgba(161, 118, 44, 0.15);
-            border-radius: 14px;
-            padding: 28px 16px;
-            height: 130px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            margin-bottom: 20px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.02);
-        }
-        .line-primary {
-            font-size: 1.1rem;
-            font-weight: 600;
-            line-height: 1.5;
-            color: var(--text-main);
-        }
+        .app-shell { width: 100%; max-width: 420px; background: var(--panel-glass); border: 1px solid var(--border-glass); border-radius: 24px; padding: 24px; box-shadow: 0 20px 40px rgba(161, 118, 44, 0.12); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); }
+        header { text-align: center; margin-bottom: 24px; }
+        header h1 { font-size: 1.25rem; font-weight: 700; text-transform: uppercase; }
+        header p { font-size: 0.75rem; color: var(--brass-primary); text-transform: uppercase; letter-spacing: 2px; margin-top: 4px; font-weight: 600; }
+        .app-navigation { display: flex; background: rgba(161, 118, 44, 0.05); border: 1px solid rgba(161, 118, 44, 0.15); border-radius: 14px; padding: 4px; margin-bottom: 20px; gap: 4px; }
+        .nav-tab { flex: 1; background: none; border: none; color: var(--text-muted); padding: 12px 0; font-size: 0.75rem; font-weight: 600; border-radius: 10px; text-transform: uppercase; }
+        .nav-tab.active { background: #ffffff; border: 1px solid var(--border-active); color: var(--brass-primary); box-shadow: 0 2px 8px rgba(161, 118, 44, 0.08); }
+        .page-content { display: none; }
+        .page-content.active { display: block; }
+        .card-workspace { background: rgba(255, 255, 255, 0.6); border: 1px solid var(--border-glass); border-radius: 18px; padding: 20px; margin-bottom: 20px; }
+        .panel-label { display: block; font-size: 0.65rem; font-weight: 700; color: var(--brass-primary); text-transform: uppercase; margin-bottom: 12px; }
+        .btn-prime { background: linear-gradient(135deg, #dfba7c, var(--brass-primary)); color: #ffffff; border: none; padding: 14px 20px; border-radius: 12px; font-weight: 700; font-size: 0.8rem; cursor: pointer; width: 100%; text-transform: uppercase; box-shadow: 0 4px 12px rgba(161, 118, 44, 0.25); }
+        .display-monitor, .prompter-deck { background: #ffffff; border: 1px solid rgba(161, 118, 44, 0.15); border-radius: 12px; padding: 20px; text-align: center; min-height: 90px; display: flex; flex-direction: column; justify-content: center; align-items: center; }
+        .status-readout { font-size: 1.25rem; font-weight: 600; color: var(--text-main); }
+        .meter-container { width: 100%; height: 4px; background: #e2e8f0; border-radius: 2px; margin-top: 16px; overflow: hidden; }
+        .meter-fill { height: 100%; width: 0%; background: var(--brass-primary); transition: width 0.1s linear; }
+        .line-primary { font-size: 1.1rem; font-weight: 600; line-height: 1.5; color: var(--text-main); }
     </style>
 </head>
 <body>
-
     <div class="app-shell">
         <header>
             <h1>Songs Of Praise</h1>
             <p>Choir Workspace</p>
         </header>
 
-        <!-- Premium Navigation System -->
         <div class="app-navigation">
             <button class="nav-tab active" onclick="switchTab('tester', event)">Vocal Tester</button>
             <button class="nav-tab" onclick="switchTab('prompter', event)">Prompter</button>
         </div>
 
-        <!-- System 1: Vocal Tester -->
         <div id="tester-page" class="page-content active">
             <div class="card-workspace">
                 <span class="panel-label">Acoustic Analysis Matrix</span>
                 <div class="display-monitor">
                     <div id="pitch-status" class="status-readout">READY</div>
-                    <div class="meter-container">
-                        <div id="progress-bar" class="meter-fill"></div>
-                    </div>
+                    <div class="meter-container"><div id="progress-bar" class="meter-fill"></div></div>
                 </div>
             </div>
             <button class="btn-prime" onclick="startVocalTest()">Initialize Scan</button>
         </div>
 
-        <!-- System 2: Prompter -->
         <div id="prompter-page" class="page-content">
             <div class="card-workspace">
                 <span class="panel-label">Manuscript Teleprompter</span>
@@ -248,12 +77,10 @@
         </div>
     </div>
 
-    <!-- Application Core Logic Scripts -->
     <script>
         function switchTab(tabName, e) {
             document.querySelectorAll('.nav-tab').forEach(btn => btn.classList.remove('active'));
             document.querySelectorAll('.page-content').forEach(p => p.classList.remove('active'));
-            
             e.target.classList.add('active');
             if(tabName === 'tester') {
                 document.getElementById('tester-page').classList.add('active');
@@ -266,10 +93,33 @@
             let bar = document.getElementById('progress-bar');
             let status = document.getElementById('pitch-status');
             let width = 0;
-            status.innerText = "ANALYZING PITCH...";
+            status.innerText = "ANALYZING...";
             bar.style.width = '0%';
-            
             let interval = setInterval(() => {
                 if (width >= 100) {
                     clearInterval(interval);
-                    const registers = ["Soprano Range", "Alto Range", "Tenor Range", "Bass Range"];
+                    status.innerText = ["Soprano Range", "Alto Range", "Tenor Range", "Bass Range"][Math.floor(Math.random() * 4)];
+                } else {
+                    width += 5;
+                    bar.style.width = width + '%';
+                }
+            }, 80);
+        }
+
+        const lyrics = [
+            "Amazing grace! How sweet the sound",
+            "That saved a wretch like me!",
+            "I once was lost, but now am found",
+            "Was blind, but now I see.",
+            "Praise God, praise God, Amen."
+        ];
+        let lyricIndex = 0;
+
+        function advanceLyrics() {
+            let box = document.getElementById('lyric-box');
+            box.innerText = lyrics[lyricIndex];
+            lyricIndex = (lyricIndex + 1) % lyrics.length;
+        }
+    </script>
+</body>
+</html>
