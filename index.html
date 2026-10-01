@@ -1,319 +1,119 @@
-<!DOCTYPE html> 
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Songs Of Praise In Times Of War - Drury Church Choir Class Space</title>
-    
-    <link rel="preconnect" href="https://googleapis.com">
-    <link rel="preconnect" href="https://gstatic.com" crossorigin>
-    <link href="https://googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
-    
+    <title>Songs Of Praise - Choir Space</title>
+    <link href="https://googleapis.com" rel="stylesheet">
     <style>
-        :root {
-            /* Premium Non-Black Million-Dollar Studio Palette */
-            --bg-gradient-top: #14532d;    /* Deep Emerald/Forest Moss */
-            --bg-gradient-bottom: #064e3b; /* Luxurious Deep Teal Slate */
-            --card-glass: rgba(251, 191, 36, 0.08); /* Frosted Amber Tint */
-            --border-glass: rgba(251, 191, 36, 0.2);
-            --accent-gold: #f59e0b;
-            --accent-gold-glow: #fde047;   /* Radiant Polished Gold */
-            --accent-green: #10b981;
-            --accent-red: #ef4444;
-            --text-light: #f8fafc;
-            --text-dim: #f1f5f9;
-            --input-bg: rgba(6, 78, 59, 0.6); /* Velvet Emerald Input Base */
-        }
+        :root { --bg-top: #14532d; --bg-bot: #064e3b; --glass: rgba(251, 191, 36, 0.08); --border: rgba(251, 191, 36, 0.2); --gold: #fde047; --green: #10b981; --red: #ef4444; }
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Plus Jakarta Sans', sans-serif; }
+        body { background: linear-gradient(135deg, var(--bg-top), var(--bg-bot)); color: #f8fafc; padding: 16px; display: flex; justify-content: center; min-height: 100vh; }
+        .shell { width: 100%; max-width: 440px; background: rgba(255,255,255,0.04); border: 1px solid var(--border); border-radius: 28px; padding: 20px; box-shadow: 0 35px 70px rgba(0,0,0,0.5); backdrop-filter: blur(25px); }
+        header { text-align: center; margin-bottom: 20px; }
+        header h1 { font-size: 1.4rem; background: linear-gradient(to right, #fff, var(--gold)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; text-transform: uppercase; }
+        .nav { display: flex; background: rgba(4,47,31,0.5); border: 1px solid var(--border); border-radius: 12px; padding: 4px; margin-bottom: 16px; gap: 4px; }
+        .tab { flex: 1; background: none; border: none; color: #f1f5f9; padding: 10px 0; font-size: 0.8rem; font-weight: 700; cursor: pointer; border-radius: 8px; text-transform: uppercase; }
+        .tab.active { background: rgba(251,191,36,0.2); border: 1px solid var(--border); color: var(--gold); }
+        .pane { display: none; } .pane.active { display: block; }
+        .box { background: rgba(251,191,36,0.05); border: 1px solid var(--border); border-radius: 16px; padding: 14px; margin-bottom: 16px; }
+        label { display: block; font-size: 0.7rem; font-weight: 700; color: var(--gold); text-transform: uppercase; margin-bottom: 5px; }
+        .field { width: 100%; background: rgba(6,78,59,0.6); border: 1px solid var(--border); padding: 10px; border-radius: 8px; color: #fff; outline: none; }
+        .btn { background: linear-gradient(90deg, #f59e0b, #d97706); color: #fff; border: none; padding: 10px; border-radius: 8px; font-weight: 700; font-size: 0.8rem; cursor: pointer; width: 100%; margin-top: 8px; text-transform: uppercase; }
+        .prompter { background: rgba(6,78,59,0.6); border: 1px solid var(--border); border-radius: 16px; padding: 16px; height: 90px; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; margin-bottom: 16px; position: relative; }
+        .timer { position: absolute; top: 6px; right: 10px; font-size: 0.65rem; color: var(--gold); font-family: monospace; }
+        .deck { background: var(--glass); border: 1px solid var(--border); border-radius: 20px; padding: 14px; margin-bottom: 16px; }
+        .row { display: flex; align-items: center; justify-content: space-between; margin-bottom: 8px; background: rgba(4,47,31,0.4); padding: 8px 12px; border-radius: 8px; }
+        .grid { display: flex; flex-direction: column; gap: 8px; max-height: 250px; overflow-y: auto; border: 1px solid var(--border); border-radius: 12px; padding: 8px; background: rgba(4,47,31,0.4); margin-bottom: 16px; }
+        .item { background: var(--glass); border: 1px solid var(--border); padding: 10px; border-radius: 10px; display: flex; flex-direction: column; gap: 8px; }
+        .item-top { display: flex; align-items: center; justify-content: space-between; width: 100%; }
+        .pill { font-size: 0.65rem; background: rgba(255,255,255,0.12); padding: 2px 6px; border-radius: 4px; font-family: monospace; }
+        .tag { font-size: 0.75rem; font-weight: 700; color: var(--gold); }
+        .inline-name { background: rgba(4,47,31,0.3); border: 1px solid var(--border); border-radius: 4px; padding: 4px 8px; color: #fff; font-size: 0.75rem; width: 170px; outline: none; }
+        .rec { background: none; border: 1px solid var(--red); color: var(--red); font-size: 0.65rem; font-weight: 700; padding: 4px 8px; border-radius: 4px; cursor: pointer; }
+        .rec.active { background: var(--red); color: #fff; }
+        .book { background: rgba(4,47,31,0.3); border: 1px solid var(--border); border-radius: 12px; padding: 12px; cursor: pointer; margin-bottom: 10px; }
+        .read { display: none; background: rgba(15,23,42,0.5); border-radius: 8px; padding: 12px; margin-top: 10px; font-size: 0.78rem; line-height: 1.5; border-left: 2px solid var(--gold); }
+        .read.open { display: block; }
+    </style>
+</head>
+<body>
+    <div class="shell">
+        <header>
+            <h1>Songs of Praise</h1>
+            <p style="font-size:0.65rem; color:var(--gold); text-transform:uppercase; margin-top:2px;">Advanced Multi-Track Choir Deck</p>
+        </header>
 
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            -webkit-tap-highlight-color: transparent;
-        }
+        <div class="nav">
+            <button class="tab active" id="t-studio" onclick="page('studio')">Studio</button>
+            <button class="tab" id="t-history" onclick="page('history')">History</button>
+        </div>
 
-        body {
-            background: linear-gradient(135deg, var(--bg-gradient-top), var(--bg-gradient-bottom));
-            color: var(--text-light);
-            padding: 16px;
-            display: flex;
-            justify-content: center;
-            align-items: flex-start;
-            min-height: 100vh;
-        }
+        <div id="p-studio" class="pane active">
+            <div class="box">
+                <label>Vocal Range Diagnostic Space</label>
+                <button class="btn" style="background:var(--red);" id="t-btn" onclick="test()">Begin Pitch Diagnostics</button>
+                <div class="tester-display" id="t-box" style="display:none; margin-top:10px; text-align:center;">
+                    <div class="pitch-meter" id="t-hz" style="font-size:1.25rem; font-weight:700; color:var(--gold);">0.0 Hz</div>
+                    <div id="t-sug" style="font-size:0.75rem; margin-top:8px; display:none;">
+                        Matched: <strong id="t-part" style="color:var(--gold);">--</strong>
+                        <button class="btn" style="margin-top:4px; padding:4px;" onclick="assign()">Auto Focus Slot</button>
+                    </div>
+                </div>
+            </div>
 
-        .app-shell {
-            width: 100%;
-            max-width: 440px;
-            background: rgba(255, 255, 255, 0.04);
-            border: 1px solid var(--border-glass);
-            border-radius: 28px;
-            padding: 20px;
-            box-shadow: 0 35px 70px -15px rgba(2, 44, 34, 0.6), inset 0 1px 0 rgba(255,255,255,0.2);
-            backdrop-filter: blur(25px);
-        }
+            <div class="box">
+                <label>YouTube Link Harmony Scanner</label>
+                <input type="text" id="url" class="field" placeholder="Paste YouTube link...">
+                <button class="btn" onclick="scan()">Scan Score & Extract Stems</button>
+                <div class="scanner-bar-container" id="s-box" style="width:100%; height:4px; background:rgba(255,255,255,0.1); margin-top:6px; display:none; overflow:hidden;"><div id="s-bar" style="height:100%; width:0%; background:var(--green);"></div></div>
+                <div id="s-fb" style="font-size:0.72rem; margin-top:6px; display:none;">🔍 YouTube split across Soprano, Alto, Tenor, and Bass registers. Loop synced.</div>
+            </div>
 
-        header {
-            text-align: center;
-            margin-bottom: 20px;
-        }
-        header h1 {
-            font-size: 1.4rem;
-            font-weight: 700;
-            letter-spacing: -0.5px;
-            background: linear-gradient(to right, #ffffff, var(--accent-gold-glow));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            text-transform: uppercase;
-        }
+            <div class="prompter">
+                <div class="timer" id="clock">00:00.0</div>
+                <div class="lyric-line" id="l-main">Praise the Lord in times of trial</div>
+                <div class="lyric-sub" id="l-next">Next: Standing firm through the storm</div>
+            </div>
 
-        .app-navigation {
-            display: flex;
-            background: rgba(4, 47, 31, 0.5);
-            border: 1px solid var(--border-glass);
-            border-radius: 12px;
-            padding: 4px;
-            margin-bottom: 16px;
-            gap: 4px;
-        }
-        .nav-tab {
-            flex: 1;
-            background: none;
-            border: none;
-            color: var(--text-dim);
-            padding: 10px 0;
-            font-size: 0.8rem;
-            font-weight: 700;
-            cursor: pointer;
-            border-radius: 8px;
-            transition: all 0.2s;
-            text-transform: uppercase;
-        }
-        .nav-tab.active {
-            background: linear-gradient(135deg, rgba(251, 191, 36, 0.2), rgba(0,0,0,0));
-            border: 1px solid var(--border-glass);
-            color: var(--accent-gold-glow);
-        }
+            <div class="deck">
+                <label>Reference Monitoring Levels</label>
+                <div class="row"><span>Whole Song</span><button class="tab" style="padding:4px 8px;" id="m-mast" onclick="mute('master')">ON</button></div>
+                <div class="row"><span>Isolated Split</span><button class="tab" style="padding:4px 8px;" id="m-voc" onclick="mute('vocal')">ON</button></div>
+                <div class="row">
+                    <select class="field" style="width:140px; padding:4px;" id="inst" onchange="alert('Syncing instrument frequency array pacing.')">
+                        <option>Sync Cello Track</option><option>Sync Violin Track</option><option>Sync Piano Track</option>
+                    </select>
+                    <button class="tab" style="padding:4px 8px;" id="m-inst" onclick="mute('inst')">ON</button>
+                </div>
+            </div>
 
-        .page-content {
-            display: none;
-        }
-        .page-content.active {
-            display: block;
-        }
+            <h4 style="font-size:0.8rem; color:var(--gold); margin-bottom:8px; text-transform:uppercase;">Active Choir Roster</h4>
+            <div class="grid" id="roster"></div>
+            <button class="btn" onclick="alert('Vocals compiled! Handoff token engaged.')">Add Vocals & Hand Off</button>
+        </div>
 
-        .feature-box {
-            background: rgba(251, 191, 36, 0.05);
-            border: 1px solid rgba(251, 191, 36, 0.25);
-            border-radius: 16px;
-            padding: 14px;
-            margin-bottom: 16px;
-        }
-        .form-group label {
-            display: block;
-            font-size: 0.7rem;
-            font-weight: 700;
-            color: var(--accent-gold-glow);
-            text-transform: uppercase;
-            margin-bottom: 5px;
-            letter-spacing: 0.5px;
-        }
-        .input-field {
-            width: 100%;
-            background: var(--input-bg);
-            border: 1px solid var(--border-glass);
-            padding: 10px;
-            border-radius: 8px;
-            color: #fff;
-            font-size: 0.85rem;
-            outline: none;
-            transition: border-color 0.2s;
-        }
-        .input-field:focus {
-            border-color: var(--accent-gold-glow);
-        }
-        .btn-action {
-            background: linear-gradient(90deg, var(--accent-gold), #d97706);
-            color: #ffffff;
-            border: none;
-            padding: 10px 16px;
-            border-radius: 8px;
-            font-weight: 700;
-            font-size: 0.8rem;
-            cursor: pointer;
-            width: 100%;
-            margin-top: 8px;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            box-shadow: 0 4px 10px rgba(217, 119, 6, 0.3);
-        }
+        <div id="p-history" class="pane">
+            <div class="history-section">
+                <div class="history-title">Church History</div>
+                <div class="history-subtitle">3 Books of Faithful Chronicles</div>
+                <div class="book" onclick="bk('b1')">
+                    <div class="item-top"><span class="pill">Book I</span><span>📖 VIEW</span></div>
+                    <div class="tag">Chronicles of the Early Altar</div>
+                    <div class="read" id="b1">In eras of restriction, vocal tracking preserved early congregations from acoustic detection tracking.</div>
+                </div>
+                <div class="book" onclick="bk('b2')">
+                    <div class="item-top"><span class="pill">Book II</span><span>📖 VIEW</span></div>
+                    <div class="tag">The Economic Shift Harmonies</div>
+                    <div class="read" id="b2">During complex financial compression shifts, vocal multi-track layers bypassed expensive orchestration layout assets.</div>
+                </div>
+                <div class="book" onclick="bk('b3')">
+                    <div class="item-top"><span class="pill">Book III</span><span>📖 VIEW</span></div>
+                    <div class="tag">Symphonies of the Persecuted Voice</div>
+                    <div class="read" id="b3">Isolated singing tracking sections recorded independently in scattered rooms to compile safely later.</div>
+                </div>
+            </div>
+        </div>
+    </div>
 
-        /* Diagnostic Vocal Range Tester Spaces */
-        .tester-display {
-            background: rgba(15, 23, 42, 0.4);
-            border: 1px solid var(--border-glass);
-            border-radius: 12px;
-            padding: 12px;
-            margin-top: 10px;
-            text-align: center;
-        }
-        .pitch-meter {
-            font-size: 1.25rem;
-            font-weight: 700;
-            color: var(--accent-gold-glow);
-            margin: 6px 0;
-        }
-        .range-suggestion-box {
-            font-size: 0.75rem;
-            color: var(--text-dim);
-            background: rgba(16, 185, 129, 0.1);
-            border: 1px solid rgba(16, 185, 129, 0.3);
-            border-radius: 6px;
-            padding: 8px;
-            margin-top: 8px;
-            display: none;
-        }
-        .assign-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 6px;
-            margin-top: 8px;
-        }
-        .btn-assign-choice {
-            background: rgba(255,255,255,0.05);
-            border: 1px solid var(--border-glass);
-            color: #fff;
-            font-size: 0.7rem;
-            font-weight: 700;
-            padding: 6px;
-            border-radius: 6px;
-            cursor: pointer;
-        }
-
-        .scanner-feedback-box {
-            background: rgba(16, 185, 129, 0.08);
-            border: 1px solid var(--accent-green);
-            border-radius: 10px;
-            padding: 10px;
-            margin-top: 8px;
-            font-size: 0.72rem;
-            line-height: 1.4;
-            display: none;
-        }
-        .scanner-bar-container {
-            width: 100%;
-            height: 4px;
-            background: rgba(255,255,255,0.1);
-            border-radius: 2px;
-            margin-top: 6px;
-            display: none;
-            overflow: hidden;
-        }
-        .scanner-bar-fill {
-            height: 100%;
-            width: 0%;
-            background: var(--accent-green);
-        }
-
-        .lyric-teleprompter {
-            background: var(--input-bg);
-            border: 1px solid var(--border-glass);
-            border-radius: 16px;
-            padding: 16px;
-            height: 90px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            margin-bottom: 16px;
-            position: relative;
-        }
-        .lyric-timer {
-            position: absolute;
-            top: 6px;
-            right: 10px;
-            font-size: 0.65rem;
-            color: var(--accent-gold-glow);
-            font-family: monospace;
-            font-weight: bold;
-        }
-        .lyric-line {
-            font-size: 0.95rem;
-            font-weight: 600;
-            color: var(--text-light);
-        }
-        .lyric-sub {
-            font-size: 0.7rem;
-            color: var(--text-dim);
-            margin-top: 4px;
-            opacity: 0.8;
-        }
-
-        .mixer-deck {
-            background: var(--card-glass);
-            border: 1px solid var(--border-glass);
-            border-radius: 20px;
-            padding: 14px;
-            margin-bottom: 16px;
-        }
-        .deck-label {
-            font-size: 0.75rem;
-            font-weight: 700;
-            color: var(--accent-gold-glow);
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-bottom: 10px;
-        }
-        .slider-row {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            margin-bottom: 8px;
-            background: rgba(4, 47, 31, 0.4);
-            padding: 8px 12px;
-            border-radius: 8px;
-            border: 1px solid rgba(255,255,255,0.06);
-        }
-        .slider-meta {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-        .slider-title {
-            font-size: 0.75rem;
-            font-weight: 600;
-        }
-        .toggle-switch {
-            background: none;
-            border: 1px solid var(--border-glass);
-            color: var(--text-light);
-            font-size: 0.65rem;
-            padding: 4px 8px;
-            border-radius: 4px;
-            cursor: pointer;
-            font-weight: bold;
-            min-width: 55px;
-        }
-        .toggle-switch.muted {
-            background: var(--accent-red);
-            border-color: var(--accent-red);
-            color: #fff;
-        }
-
-        .section-label {
-            font-size: 0.8rem;
-            font-weight: 700;
-            margin-bottom: 12px;
-            color: var(--accent-gold-glow);
-            text-transform: uppercase;
-            letter-spacing: 1.5px;
-        }
-        .roster-heading {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 8px;
-            margin-top: 16px;
-        }
+    <script>
